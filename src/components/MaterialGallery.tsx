@@ -4,6 +4,7 @@ import { Sparkles, X, ShieldCheck, Compass, Check } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getOptimizedImageUrl, handleImageFallback, LUXURY_IMAGE_FALLBACKS } from '../utils/imageUtils';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,10 +132,13 @@ export const MaterialGallery: React.FC<MaterialGalleryProps> = ({
               {/* Texture-focused Image Presentation with Macro Zoom */}
               <div className="relative aspect-square overflow-hidden bg-[#29231F]">
                 <img
-                  src={mat.image}
+                  src={getOptimizedImageUrl(mat.image, LUXURY_IMAGE_FALLBACKS.marble)}
                   alt={mat.name}
                   className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-115"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.marble)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
 
@@ -188,10 +192,13 @@ export const MaterialGallery: React.FC<MaterialGalleryProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="relative min-h-[320px] bg-black overflow-hidden">
                 <img
-                  src={inspectedMaterial.image}
+                  src={getOptimizedImageUrl(inspectedMaterial.image, LUXURY_IMAGE_FALLBACKS.marble)}
                   alt={inspectedMaterial.name}
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.marble)}
                 />
                 <div className="absolute bottom-4 left-4 right-4 bg-[#171717]/90 p-3 text-center border border-[#C6A875]/30">
                   <span className="text-[10px] uppercase tracking-[0.2em] text-[#C6A875]">

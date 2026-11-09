@@ -11,6 +11,22 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Robust static asset serving for Render production and dev environments
+const publicDir = path.resolve(__dirname, 'public');
+const publicImagesDir = path.resolve(publicDir, 'images');
+const srcImagesDir = path.resolve(__dirname, 'src/assets/images');
+
+if (fs.existsSync(publicDir)) {
+  app.use(express.static(publicDir));
+}
+if (fs.existsSync(publicImagesDir)) {
+  app.use('/images', express.static(publicImagesDir));
+  app.use('/src/assets/images', express.static(publicImagesDir));
+}
+if (fs.existsSync(srcImagesDir)) {
+  app.use('/src/assets/images', express.static(srcImagesDir));
+}
+
 // Persistent database file path
 const DATA_DIR = path.resolve(__dirname, 'data');
 const DB_FILE = path.resolve(DATA_DIR, 'velora-db.json');
@@ -95,7 +111,7 @@ const initialData = {
       finish: "Honed Tactile Velvet",
       durabilityRating: "High Thermal Endurance, Sealed Anti-Stain",
       recommendedUse: "Waterfall Islands, Full-Height Bookmatched Splashbacks",
-      image: "/src/assets/images/material_marble_detail_1794074100264.jpg",
+      image: "/images/material_marble_detail.jpg",
       featured: true
     },
     {
@@ -107,7 +123,7 @@ const initialData = {
       finish: "Silk Satin Matte",
       durabilityRating: "Architectural Grade Calcite",
       recommendedUse: "Centerpiece Cantilevered Islands, Integrated Stone Sinks",
-      image: "/src/assets/images/collection_island_kitchen_1794074099657.jpg",
+      image: "/images/collection_island_kitchen.jpg",
       featured: true
     },
     {
@@ -119,7 +135,7 @@ const initialData = {
       finish: "Leathered Flamed",
       durabilityRating: "High Density, Low Porosity",
       recommendedUse: "Monolithic Prep Counters & Butler Pantries",
-      image: "/src/assets/images/collection_italian_kitchen_1794074099328.jpg",
+      image: "/images/collection_italian_kitchen.jpg",
       featured: false
     },
     {
@@ -131,7 +147,7 @@ const initialData = {
       finish: "Diamond Honed",
       durabilityRating: "Mohs Hardness 7, Scratch & Acid Proof",
       recommendedUse: "High-Traffic Culinary Worktops & Island Tops",
-      image: "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
+      image: "/images/hero_luxury_kitchen.jpg",
       featured: true
     },
     {
@@ -143,7 +159,7 @@ const initialData = {
       finish: "Ultra-Matte Natural Polyurethane 0-Sheen",
       durabilityRating: "FSC-Certified Grade A Core, Humidity Stabilized",
       recommendedUse: "Tall Larder Facades, Island Cladding, Concealed Bar Units",
-      image: "/src/assets/images/project_penthouse_kitchen_1794074100537.jpg",
+      image: "/images/project_penthouse_kitchen.jpg",
       featured: true
     },
     {
@@ -155,7 +171,7 @@ const initialData = {
       finish: "Brushed Open-Pore Oil",
       durabilityRating: "High Impact Resistant Core",
       recommendedUse: "Architectural Cabinetry & Integrated Floating Shelves",
-      image: "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
+      image: "/images/hero_luxury_kitchen.jpg",
       featured: false
     },
     {
@@ -167,7 +183,7 @@ const initialData = {
       finish: "Super-Matte Anti-Fingerprint",
       durabilityRating: "Thermal Healing, Anti-Bacterial",
       recommendedUse: "Handleless Cabinet Doors & Touch-To-Open Drawers",
-      image: "/src/assets/images/collection_italian_kitchen_1794074099328.jpg",
+      image: "/images/collection_italian_kitchen.jpg",
       featured: true
     },
     {
@@ -179,7 +195,7 @@ const initialData = {
       finish: "PVD Champagne Satin",
       durabilityRating: "Wear-Resistant PVD Coating, Zero Tarnish",
       recommendedUse: "Integrated Pocket Handles, Gola Profiles & Shadow Gaps",
-      image: "/src/assets/images/material_marble_detail_1794074100264.jpg",
+      image: "/images/material_marble_detail.jpg",
       featured: true
     }
   ],
@@ -192,7 +208,7 @@ const initialData = {
       materialsUsed: "Calacatta Viola, Smoked Crown Oak, Champagne Brass",
       overview: "A 450 sq m duplex penthouse overlooking Hyde Park. Designed with a continuous 5.2-meter cantilevered marble island, motorized pocket doors concealing the chef's preparation galley, and bespoke Sub-Zero refrigeration columns.",
       year: "2026",
-      image: "/src/assets/images/project_penthouse_kitchen_1794074100537.jpg",
+      image: "/images/project_penthouse_kitchen.jpg",
       clientQuote: "Velora transformed our space into an architectural sculpture. The joinery precision and stone selection are beyond peer.",
       featured: true
     },
@@ -204,7 +220,7 @@ const initialData = {
       materialsUsed: "Pietra Grey Marble, Matte Nero Fenix, Fluted Walnut",
       overview: "Lakeside estate kitchen engineered to harmonise with panoramic alpine views. Features dual parallel monolith islands, ceiling-recessed flush induction extraction, and floor-to-ceiling climate-controlled sommelier displays.",
       year: "2025",
-      image: "/src/assets/images/collection_italian_kitchen_1794074099328.jpg",
+      image: "/images/collection_italian_kitchen.jpg",
       clientQuote: "Every drawer glides with silent authority. It is truly the heart of our villa.",
       featured: true
     },
@@ -216,7 +232,7 @@ const initialData = {
       materialsUsed: "Arabescato Corchia, Burnished Gunmetal, Cashmere Lacquer",
       overview: "Historic cast-iron loft conversion featuring a sculptural curved island with bookmatched marble waterfall edges, integrated banquette breakfast lounge, and concealed appliance garaging.",
       year: "2026",
-      image: "/src/assets/images/collection_island_kitchen_1794074099657.jpg",
+      image: "/images/collection_island_kitchen.jpg",
       clientQuote: "The 3D design studio accurately predicted every proportion before a single slab was cut.",
       featured: true
     },
@@ -228,7 +244,7 @@ const initialData = {
       materialsUsed: "Taj Mahal Quartzite, Fluted Smoked Oak, Brushed Bronze",
       overview: "An opulent Haussmannian salon turned culinary sanctuary. Retains 19th-century gilded cornices while incorporating ultra-minimalist handleless titanium-trimmed cabinetry.",
       year: "2025",
-      image: "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
+      image: "/images/hero_luxury_kitchen.jpg",
       clientQuote: "A seamless synthesis of historic Parisian grandeur and contemporary culinary tech.",
       featured: true
     }
@@ -401,7 +417,7 @@ app.post('/api/materials', (req: Request, res: Response) => {
   const newMaterial = {
     id: `mat-${Date.now()}`,
     ...material,
-    image: material.image || '/src/assets/images/material_marble_detail_1794074100264.jpg'
+    image: material.image || '/images/material_marble_detail.jpg'
   };
   db.materials.push(newMaterial);
   writeDb(db);
@@ -425,7 +441,7 @@ app.post('/api/projects', (req: Request, res: Response) => {
   const newProject = {
     id: `proj-${Date.now()}`,
     ...project,
-    image: project.image || '/src/assets/images/project_penthouse_kitchen_1794074100537.jpg'
+    image: project.image || '/images/project_penthouse_kitchen.jpg'
   };
   db.projects.push(newProject);
   writeDb(db);
@@ -448,8 +464,19 @@ async function startServer() {
   initDb();
 
   if (process.env.NODE_ENV === 'production') {
-    // Serve production build
+    // Serve production build with explicit image directory routing
     const distPath = path.resolve(__dirname, 'dist');
+    const distImages = path.resolve(distPath, 'images');
+    const distSrcAssets = path.resolve(distPath, 'src/assets/images');
+
+    if (fs.existsSync(distImages)) {
+      app.use('/images', express.static(distImages, { maxAge: '7d' }));
+      app.use('/src/assets/images', express.static(distImages, { maxAge: '7d' }));
+    }
+    if (fs.existsSync(distSrcAssets)) {
+      app.use('/src/assets/images', express.static(distSrcAssets, { maxAge: '7d' }));
+    }
+
     app.use(express.static(distPath));
     app.get('*', (_req, res) => {
       res.sendFile(path.resolve(distPath, 'index.html'));

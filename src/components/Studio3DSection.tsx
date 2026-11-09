@@ -5,6 +5,7 @@ import { ThreeKitchenViewer } from './ThreeKitchenViewer';
 import { MagneticButton } from './MagneticButton';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { handleImageFallback, LUXURY_IMAGE_FALLBACKS } from '../utils/imageUtils';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -572,10 +573,13 @@ export const Studio3DSection: React.FC<Studio3DSectionProps> = ({ onStartDesign 
           >
             {/* "After" - Luxury Velora Kitchen (Full layer beneath) */}
             <img
-              src="/src/assets/images/project_penthouse_kitchen_1794074100537.jpg"
+              src="/images/project_penthouse_kitchen.jpg"
               alt="After: Velora custom luxury architectural kitchen installation"
               className="absolute inset-0 w-full h-full object-cover"
               referrerPolicy="no-referrer"
+              loading="lazy"
+              decoding="async"
+              onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.penthouse)}
             />
             <div className="absolute top-4 right-4 bg-[#171717]/85 backdrop-blur-md px-3.5 py-1.5 text-xs uppercase tracking-widest text-[#C6A875] border border-[#C6A875]/40 font-semibold z-10">
               AFTER: VELORA ARCHITECTURE
@@ -587,7 +591,7 @@ export const Studio3DSection: React.FC<Studio3DSectionProps> = ({ onStartDesign 
               style={{ width: `${sliderPos}%` }}
             >
               <img
-                src="/src/assets/images/collection_italian_kitchen_1794074099328.jpg"
+                src="/images/collection_italian_kitchen.jpg"
                 alt="Before: Outdated closed-off modular kitchen"
                 className="absolute inset-0 w-full h-full object-cover filter sepia-[0.35] contrast-[0.85] brightness-[0.7]"
                 style={{
@@ -596,6 +600,9 @@ export const Studio3DSection: React.FC<Studio3DSectionProps> = ({ onStartDesign 
                   height: '100%'
                 }}
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
+                onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.italian)}
               />
               <div className="absolute top-4 left-4 bg-[#171717]/85 backdrop-blur-md px-3.5 py-1.5 text-xs uppercase tracking-widest text-[#D8CCBA] border border-white/20 font-semibold z-10">
                 BEFORE: COMPARTMENTALIZED 1990S

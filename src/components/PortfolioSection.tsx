@@ -4,6 +4,7 @@ import { ArrowUpRight, X, MapPin, Calendar, Check } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getOptimizedImageUrl, handleImageFallback, LUXURY_IMAGE_FALLBACKS } from '../utils/imageUtils';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -140,10 +141,13 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
               {/* Large Project Image with Cinematic Hover Zoom */}
               <div className="relative aspect-[16/10] overflow-hidden bg-[#29231F]">
                 <img
-                  src={proj.image}
+                  src={getOptimizedImageUrl(proj.image, LUXURY_IMAGE_FALLBACKS.penthouse)}
                   alt={proj.name}
                   className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-108"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.penthouse)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
@@ -210,10 +214,13 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
             <div className="relative aspect-[16/9] w-full bg-black overflow-hidden">
               <img
-                src={activeProject.image}
+                src={getOptimizedImageUrl(activeProject.image, LUXURY_IMAGE_FALLBACKS.penthouse)}
                 alt={activeProject.name}
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
+                onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.penthouse)}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1D1815] via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">

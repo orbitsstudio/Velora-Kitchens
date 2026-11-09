@@ -18,11 +18,11 @@ export const collectionsData: KitchenCollection[] = [
       fittings: "Blum Legrabox Pure Inox with Servo-Drive Motorization",
       applianceIntegration: "Concealed Motorized Pocket Door Galley"
     },
-    image: "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
+    image: "/images/hero_luxury_kitchen.jpg",
     galleryImages: [
-      "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
-      "/src/assets/images/material_marble_detail_1794074100264.jpg",
-      "/src/assets/images/collection_italian_kitchen_1794074099328.jpg"
+      "/images/hero_luxury_kitchen.jpg",
+      "/images/material_marble_detail.jpg",
+      "/images/collection_italian_kitchen.jpg"
     ]
   },
   {
@@ -42,11 +42,11 @@ export const collectionsData: KitchenCollection[] = [
       fittings: "Grass Nova Pro Scala with Soft-Close Hydraulic Buffers",
       applianceIntegration: "Gaggenau 400 Series Flush Induction & Dual Wine Cellars"
     },
-    image: "/src/assets/images/project_penthouse_kitchen_1794074100537.jpg",
+    image: "/images/project_penthouse_kitchen.jpg",
     galleryImages: [
-      "/src/assets/images/project_penthouse_kitchen_1794074100537.jpg",
-      "/src/assets/images/collection_island_kitchen_1794074099657.jpg",
-      "/src/assets/images/material_marble_detail_1794074100264.jpg"
+      "/images/project_penthouse_kitchen.jpg",
+      "/images/collection_island_kitchen.jpg",
+      "/images/material_marble_detail.jpg"
     ]
   },
   {
@@ -66,11 +66,11 @@ export const collectionsData: KitchenCollection[] = [
       fittings: "Salice Air Concealed 3D Adjustable Hinges",
       applianceIntegration: "Bora Professional 3.0 Surface Induction with Teppanyaki"
     },
-    image: "/src/assets/images/collection_italian_kitchen_1794074099328.jpg",
+    image: "/images/collection_italian_kitchen.jpg",
     galleryImages: [
-      "/src/assets/images/collection_italian_kitchen_1794074099328.jpg",
-      "/src/assets/images/material_marble_detail_1794074100264.jpg",
-      "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg"
+      "/images/collection_italian_kitchen.jpg",
+      "/images/material_marble_detail.jpg",
+      "/images/hero_luxury_kitchen.jpg"
     ]
   },
   {
@@ -90,11 +90,11 @@ export const collectionsData: KitchenCollection[] = [
       fittings: "Blum Aventos Bi-Fold Electronic Lift Systems",
       applianceIntegration: "Miele Generation 7000 Smart Sensor Cooking Suite"
     },
-    image: "/src/assets/images/collection_island_kitchen_1794074099657.jpg",
+    image: "/images/collection_island_kitchen.jpg",
     galleryImages: [
-      "/src/assets/images/collection_island_kitchen_1794074099657.jpg",
-      "/src/assets/images/project_penthouse_kitchen_1794074100537.jpg",
-      "/src/assets/images/collection_italian_kitchen_1794074099328.jpg"
+      "/images/collection_island_kitchen.jpg",
+      "/images/project_penthouse_kitchen.jpg",
+      "/images/collection_italian_kitchen.jpg"
     ]
   },
   {
@@ -114,11 +114,11 @@ export const collectionsData: KitchenCollection[] = [
       fittings: "Grass Tipmatic Soft-Close Mechanical Push Ejection",
       applianceIntegration: "Knock-to-Open Fully Integrated Dishwashing & Cooling"
     },
-    image: "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
+    image: "/images/hero_luxury_kitchen.jpg",
     galleryImages: [
-      "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
-      "/src/assets/images/material_marble_detail_1794074100264.jpg",
-      "/src/assets/images/collection_italian_kitchen_1794074099328.jpg"
+      "/images/hero_luxury_kitchen.jpg",
+      "/images/material_marble_detail.jpg",
+      "/images/collection_italian_kitchen.jpg"
     ]
   },
   {
@@ -138,11 +138,11 @@ export const collectionsData: KitchenCollection[] = [
       fittings: "Solid Dovetail European Oak Drawer Boxes with Concealed Runners",
       applianceIntegration: "La Cornue Château Range with Custom Hood Canopy"
     },
-    image: "/src/assets/images/project_penthouse_kitchen_1794074100537.jpg",
+    image: "/images/project_penthouse_kitchen.jpg",
     galleryImages: [
-      "/src/assets/images/project_penthouse_kitchen_1794074100537.jpg",
-      "/src/assets/images/collection_island_kitchen_1794074099657.jpg",
-      "/src/assets/images/material_marble_detail_1794074100264.jpg"
+      "/images/project_penthouse_kitchen.jpg",
+      "/images/collection_island_kitchen.jpg",
+      "/images/material_marble_detail.jpg"
     ]
   }
 ];
@@ -157,7 +157,7 @@ export const fallbackMaterials: Material[] = [
     finish: "Honed Tactile Velvet",
     durabilityRating: "High Thermal Endurance, Sealed Anti-Stain",
     recommendedUse: "Waterfall Islands, Full-Height Bookmatched Splashbacks",
-    image: "/src/assets/images/material_marble_detail_1794074100264.jpg",
+    image: "/images/material_marble_detail.jpg",
     featured: true
   },
   {
@@ -169,7 +169,7 @@ export const fallbackMaterials: Material[] = [
     finish: "Silk Satin Matte",
     durabilityRating: "Architectural Grade Calcite",
     recommendedUse: "Centerpiece Cantilevered Islands, Integrated Stone Sinks",
-    image: "/src/assets/images/collection_island_kitchen_1794074099657.jpg",
+    image: "/images/collection_island_kitchen.jpg",
     featured: true
   },
   {
@@ -181,7 +181,7 @@ export const fallbackMaterials: Material[] = [
     finish: "Leathered Flamed",
     durabilityRating: "High Density, Low Porosity",
     recommendedUse: "Monolithic Prep Counters & Butler Pantries",
-    image: "/src/assets/images/collection_italian_kitchen_1794074099328.jpg",
+    image: "/images/collection_italian_kitchen.jpg",
     featured: false
   },
   {
@@ -193,7 +193,7 @@ export const fallbackMaterials: Material[] = [
     finish: "Diamond Honed",
     durabilityRating: "Mohs Hardness 7, Scratch & Acid Proof",
     recommendedUse: "High-Traffic Culinary Worktops & Island Tops",
-    image: "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
+    image: "/images/hero_luxury_kitchen.jpg",
     featured: true
   },
   {
@@ -205,7 +205,7 @@ export const fallbackMaterials: Material[] = [
     finish: "Ultra-Matte Natural Polyurethane 0-Sheen",
     durabilityRating: "FSC-Certified Grade A Core, Humidity Stabilized",
     recommendedUse: "Tall Larder Facades, Island Cladding, Concealed Bar Units",
-    image: "/src/assets/images/project_penthouse_kitchen_1794074100537.jpg",
+    image: "/images/project_penthouse_kitchen.jpg",
     featured: true
   },
   {
@@ -217,7 +217,7 @@ export const fallbackMaterials: Material[] = [
     finish: "Brushed Open-Pore Oil",
     durabilityRating: "High Impact Resistant Core",
     recommendedUse: "Architectural Cabinetry & Integrated Floating Shelves",
-    image: "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
+    image: "/images/hero_luxury_kitchen.jpg",
     featured: false
   },
   {
@@ -229,7 +229,7 @@ export const fallbackMaterials: Material[] = [
     finish: "Super-Matte Anti-Fingerprint",
     durabilityRating: "Thermal Healing, Anti-Bacterial",
     recommendedUse: "Handleless Cabinet Doors & Touch-To-Open Drawers",
-    image: "/src/assets/images/collection_italian_kitchen_1794074099328.jpg",
+    image: "/images/collection_italian_kitchen.jpg",
     featured: true
   },
   {
@@ -241,7 +241,7 @@ export const fallbackMaterials: Material[] = [
     finish: "PVD Champagne Satin",
     durabilityRating: "Wear-Resistant PVD Coating, Zero Tarnish",
     recommendedUse: "Integrated Pocket Handles, Gola Profiles & Shadow Gaps",
-    image: "/src/assets/images/material_marble_detail_1794074100264.jpg",
+    image: "/images/material_marble_detail.jpg",
     featured: true
   },
   {
@@ -253,7 +253,7 @@ export const fallbackMaterials: Material[] = [
     finish: "Anti-Scratch Velvet Silk",
     durabilityRating: "Zero Yellowing UV Guarantee, Moisture Sealed",
     recommendedUse: "Upper Larder Columns & Clean Wall Runs",
-    image: "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
+    image: "/images/hero_luxury_kitchen.jpg",
     featured: false
   },
   {
@@ -265,7 +265,7 @@ export const fallbackMaterials: Material[] = [
     finish: "Dead-Flat 5% Gloss",
     durabilityRating: "Impact Hardened, Formaldehyde Free",
     recommendedUse: "Tall Storage Monoliths & Appliance Banks",
-    image: "/src/assets/images/collection_italian_kitchen_1794074099328.jpg",
+    image: "/images/collection_italian_kitchen.jpg",
     featured: true
   },
   {
@@ -277,7 +277,7 @@ export const fallbackMaterials: Material[] = [
     finish: "Micro-Ribbed Fluted Bronze",
     durabilityRating: "Tempered Safety Glass, Structural Aluminium",
     recommendedUse: "Display Cabinets, Sommelier Storage, Vitrines",
-    image: "/src/assets/images/collection_italian_kitchen_1794074099328.jpg",
+    image: "/images/collection_italian_kitchen.jpg",
     featured: true
   }
 ];
@@ -291,7 +291,7 @@ export const fallbackProjects: Project[] = [
     materialsUsed: "Calacatta Viola, Smoked Crown Oak, Champagne Brass",
     overview: "A 450 sq m duplex penthouse overlooking Hyde Park. Designed with a continuous 5.2-meter cantilevered marble island, motorized pocket doors concealing the chef's preparation galley, and bespoke Sub-Zero refrigeration columns.",
     year: "2026",
-    image: "/src/assets/images/project_penthouse_kitchen_1794074100537.jpg",
+    image: "/images/project_penthouse_kitchen.jpg",
     clientQuote: "Velora transformed our space into an architectural sculpture. The joinery precision and stone selection are beyond peer.",
     featured: true
   },
@@ -303,7 +303,7 @@ export const fallbackProjects: Project[] = [
     materialsUsed: "Pietra Grey Marble, Matte Nero Fenix, Fluted Walnut",
     overview: "Lakeside estate kitchen engineered to harmonise with panoramic alpine views. Features dual parallel monolith islands, ceiling-recessed flush induction extraction, and floor-to-ceiling climate-controlled sommelier displays.",
     year: "2025",
-    image: "/src/assets/images/collection_italian_kitchen_1794074099328.jpg",
+    image: "/images/collection_italian_kitchen.jpg",
     clientQuote: "Every drawer glides with silent authority. It is truly the heart of our villa.",
     featured: true
   },
@@ -315,7 +315,7 @@ export const fallbackProjects: Project[] = [
     materialsUsed: "Arabescato Corchia, Burnished Gunmetal, Cashmere Lacquer",
     overview: "Historic cast-iron loft conversion featuring a sculptural curved island with bookmatched marble waterfall edges, integrated banquette breakfast lounge, and concealed appliance garaging.",
     year: "2026",
-    image: "/src/assets/images/collection_island_kitchen_1794074099657.jpg",
+    image: "/images/collection_island_kitchen.jpg",
     clientQuote: "The 3D design studio accurately predicted every proportion before a single slab was cut.",
     featured: true
   },
@@ -327,7 +327,7 @@ export const fallbackProjects: Project[] = [
     materialsUsed: "Taj Mahal Quartzite, Fluted Smoked Oak, Brushed Bronze",
     overview: "An opulent Haussmannian salon turned culinary sanctuary. Retains 19th-century gilded cornices while incorporating ultra-minimalist handleless titanium-trimmed cabinetry.",
     year: "2025",
-    image: "/src/assets/images/hero_luxury_kitchen_1794074099834.jpg",
+    image: "/images/hero_luxury_kitchen.jpg",
     clientQuote: "A seamless synthesis of historic Parisian grandeur and contemporary culinary tech.",
     featured: true
   }

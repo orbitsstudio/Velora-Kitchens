@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Booking, Enquiry, Material, Project } from '../types';
 import { api } from '../services/api';
+import { getOptimizedImageUrl, handleImageFallback, LUXURY_IMAGE_FALLBACKS } from '../utils/imageUtils';
 import {
   Shield,
   LogOut,
@@ -137,7 +138,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       description: newMatDesc || 'Bespoke architectural specimen.',
       durabilityRating: 'High Architectural Grade',
       recommendedUse: 'Islands & Feature Joinery',
-      image: '/src/assets/images/material_marble_detail_1794074100264.jpg',
+      image: '/images/material_marble_detail.jpg',
       featured: true
     });
 
@@ -161,7 +162,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       materialsUsed: newProjMaterials || 'Calacatta Marble & Fluted Walnut',
       overview: newProjOverview || 'Custom architectural kitchen installation.',
       year: new Date().getFullYear().toString(),
-      image: '/src/assets/images/project_penthouse_kitchen_1794074100537.jpg',
+      image: '/images/project_penthouse_kitchen.jpg',
       featured: true
     });
 
@@ -615,9 +616,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   {materials.map((m) => (
                     <div key={m.id} className="bg-[#1D1815] border border-[#29231F] p-4 flex gap-4">
                       <img
-                        src={m.image}
+                        src={getOptimizedImageUrl(m.image, LUXURY_IMAGE_FALLBACKS.marble)}
                         alt={m.name}
                         className="w-20 h-20 object-cover bg-black shrink-0 border border-[#29231F]"
+                        loading="lazy"
+                        decoding="async"
+                        onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.marble)}
                       />
                       <div className="flex-1 overflow-hidden">
                         <div className="text-[10px] text-[#C6A875] uppercase tracking-wider">
@@ -653,9 +657,12 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   {projects.map((p) => (
                     <div key={p.id} className="bg-[#1D1815] border border-[#29231F] p-5 flex gap-5">
                       <img
-                        src={p.image}
+                        src={getOptimizedImageUrl(p.image, LUXURY_IMAGE_FALLBACKS.penthouse)}
                         alt={p.name}
                         className="w-28 h-28 object-cover bg-black shrink-0 border border-[#29231F]"
+                        loading="lazy"
+                        decoding="async"
+                        onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.penthouse)}
                       />
                       <div className="space-y-1 overflow-hidden">
                         <div className="text-[10px] text-[#C6A875] uppercase tracking-wider">

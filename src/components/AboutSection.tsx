@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { handleImageFallback, LUXURY_IMAGE_FALLBACKS } from '../utils/imageUtils';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -118,10 +119,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onExploreMaterials }
           <div ref={rightColRef} className="lg:col-span-5 relative">
             <div className="relative aspect-[4/5] bg-[#171717] border border-[#C6A875]/40 overflow-hidden shadow-2xl group">
               <img
-                src="/src/assets/images/project_penthouse_kitchen_1794074100537.jpg"
+                src="/images/project_penthouse_kitchen.jpg"
                 alt="Velora master craftsman fitting bespoke stone island"
                 className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-108"
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                decoding="async"
+                onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.penthouse)}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1D1815] via-transparent to-transparent opacity-80" />
 

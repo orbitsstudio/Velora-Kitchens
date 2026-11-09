@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import gsap from 'gsap';
+import { handleImageFallback, LUXURY_IMAGE_FALLBACKS } from '../utils/imageUtils';
 
 interface HeroProps {
   onExploreKitchens: () => void;
@@ -105,10 +106,13 @@ export const Hero: React.FC<HeroProps> = ({ onExploreKitchens, onBookConsultatio
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
           ref={bgImgRef}
-          src="/src/assets/images/hero_luxury_kitchen_1794074099834.jpg"
+          src="/images/hero_luxury_kitchen.jpg"
           alt="Velora bespoke luxury modular kitchen featuring marble waterfall island and smoked oak cabinetry"
           className="w-full h-full object-cover object-center will-change-transform"
           referrerPolicy="no-referrer"
+          loading="eager"
+          decoding="async"
+          onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.hero)}
         />
         {/* Measured Scrim for Media Overlays (ensuring > 4.5:1 WCAG contrast) */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#171717] via-[#171717]/65 to-[#171717]/35" />

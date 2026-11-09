@@ -5,6 +5,7 @@ import { ArrowUpRight, X, Sparkles, CheckCircle2 } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getOptimizedImageUrl, handleImageFallback, LUXURY_IMAGE_FALLBACKS } from '../utils/imageUtils';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -137,10 +138,13 @@ export const CollectionsSection: React.FC<CollectionsSectionProps> = ({
               {/* Image Frame with Smooth Zoom */}
               <div className="relative aspect-[4/3] overflow-hidden bg-[#29231F]/5">
                 <img
-                  src={col.image}
+                  src={getOptimizedImageUrl(col.image, LUXURY_IMAGE_FALLBACKS.hero)}
                   alt={col.title}
                   className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-108"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.hero)}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#171717]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="absolute top-4 left-4 text-[10px] uppercase tracking-[0.2em] font-semibold text-[#171717] bg-[#F5F1E9]/90 backdrop-blur-md px-2.5 py-1">
@@ -210,10 +214,13 @@ export const CollectionsSection: React.FC<CollectionsSectionProps> = ({
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="relative min-h-[300px] lg:min-h-full bg-[#29231F]">
                 <img
-                  src={activeCollection.image}
+                  src={getOptimizedImageUrl(activeCollection.image, LUXURY_IMAGE_FALLBACKS.hero)}
                   alt={activeCollection.title}
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => handleImageFallback(e, LUXURY_IMAGE_FALLBACKS.hero)}
                 />
               </div>
 
