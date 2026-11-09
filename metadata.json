@@ -1,0 +1,6 @@
+{
+  "name": "Velora Kitchens — Bespoke Luxury Modular Kitchens",
+  "description": "Ultra-premium bespoke modular kitchens, architectural 3D visualization, master craftsmanship, and luxury interior installations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
